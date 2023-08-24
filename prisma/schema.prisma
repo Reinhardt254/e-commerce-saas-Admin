@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = "mysql://gfvcn9jofdhhzob3b1tq:pscale_pw_AQxXpkkJIh8UWQbCtWUia1hnzrMedP3dso61pTR4Az@aws.connect.psdb.cloud/ecommerce?sslaccept=strict"
+  relationMode = "prisma"
+}
+
+
+
+model Store{
+   id     String @id @default(uuid())
+   name String
+   userId String
+   createdAt DateTime @default(now())
+   UpdatedAt DateTime @updatedAt
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
