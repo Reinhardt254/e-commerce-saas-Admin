@@ -9,7 +9,7 @@ export type BillboardColumn = {
   createdAt: string
 }
 
-export const BillboardColumn: ColumnDef<BillboardColumn>[] = [
+export const columns: ColumnDef<BillboardColumn>[] = [
   {
     accessorKey: "label",
     header: "Label",

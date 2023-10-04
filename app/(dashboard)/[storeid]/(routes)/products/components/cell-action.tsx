@@ -1,6 +1,6 @@
 "use client";
 
-import { BillboardColumn } from "./columns";
+import { ProductColumn } from "./columns";
 import { Button } from "@/components/ui/button";
 import { Copy, Edit, MoreHorizontal, Trash } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
@@ -11,7 +11,7 @@ import axios from "axios";
 import { AlertModal } from "@/components/models/alert-modal";
 
 interface CellActionProps {
-    data: BillboardColumn;
+    data: ProductColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({

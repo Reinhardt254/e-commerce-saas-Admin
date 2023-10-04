@@ -8,9 +8,10 @@ import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
 import { AlertModal } from "@/components/models/alert-modal";
+import { SizeColumn } from "./columns";
 
 interface CellActionProps {
-    data: BillboardColumn;
+    data: SizeColumn;
 }
 
 export const CellAction: React.FC<CellActionProps> = ({
