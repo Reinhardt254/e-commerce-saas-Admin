@@ -25,26 +25,3 @@ const Home = () => {
 }
 
 export default Home;
-
-
-
-{/* <UserButton afterSignOutUrl="/"/> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
