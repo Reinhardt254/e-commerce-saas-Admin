@@ -9,10 +9,11 @@ import { useState } from "react";
 import axios from "axios";
 import { AlertModal } from "@/components/models/alert-modal";
 import { Color } from "@prisma/client";
+import { ColorColumn } from "./columns";
 
 
 interface CellActionProps {
-    data: Color
+    data: ColorColumn
 }
 
 export const CellAction: React.FC<CellActionProps> = ({
