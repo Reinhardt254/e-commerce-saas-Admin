@@ -1,63 +1,32 @@
-import prismadb from "@/lib/prismadb"
-import { auth } from "@clerk/nextjs"
-import { NextResponse } from "next/server"
+import prismadb from "@/lib/prismadb";
+import { auth } from "@clerk/nextjs/server";
+import { NextResponse } from "next/server";
 
 export const POST = async (req: Request) => {
+  try {
+    const { userId } = auth();
+    const body = await req.json();
 
-    try{
-        const {userId} = auth()
-        const body = await req.json()
+    const { name } = body;
 
-        const {name} = body;
-
-        if(!userId){
-            return new NextResponse("Unauthorize" ,{status: 401})
-        }
-
-        if(!name){
-            return new NextResponse("Name is required", {status:400})
-        }
-
-        const store = await prismadb.store.create({
-            data:{
-                name,
-                userId,
-            }
-        })
- 
-        return NextResponse.json(store)
-
-    }catch(error){
-        console.log("[STORES_POST]", error)
-        return new NextResponse("Internal error", {status: 500})
+    if (!userId) {
+      return new NextResponse("Unauthorize", { status: 401 });
     }
-}
 
+    if (!name) {
+      return new NextResponse("Name is required", { status: 400 });
+    }
 
+    const store = await prismadb.store.create({
+      data: {
+        name,
+        userId,
+      },
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return NextResponse.json(store);
+  } catch (error) {
+    console.log("[STORES_POST]", error);
+    return new NextResponse("Internal error", { status: 500 });
+  }
+};
